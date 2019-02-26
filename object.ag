@@ -24,6 +24,12 @@ function main() {
 	print["Using function setV() to set value of x", "\n"];
 	x.setV(5);
 	print["Retrieving val of x using getV(): ", x.getV(), "\n"];
+
+	var f = x.setV;
+
+	f(7);
+
+	print["Retrieving val of x using getV(): ", x.getV(), "\n"];
 }
 
 main();
