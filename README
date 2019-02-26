@@ -45,6 +45,9 @@
 	displayCurrEnv(): displays the passed in environment
 	displayAll(): displays all environemnts
 
+- iAVL.ag
+	AVL tree implementation in my language
+
 - prettyPrint
 	test1 output:
 function emptyFunc() {
