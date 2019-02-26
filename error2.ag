@@ -1,0 +1,10 @@
+function main() {
+	print[faultyFuncDef(3)];
+
+}
+
+func faultyFuncDef(var x) {
+	x = x * x;
+}
+
+main();

@@ -1,0 +1,25 @@
+function main() {
+	var x = newArray(10);
+	print["Created array of size 10", "\n"];
+
+	var size = 9;
+	var pos = 0;
+
+	while(size > -1) {
+		setArray(x, pos, size);
+		pos = pos+1;
+		size = size-1;
+	}
+
+	print["Populated array. Opposite value in opposite position (relativeley opposite)", "\n"];
+
+	size = 0;
+	while(size ! 10) {
+		print[getArray(x, size), " "];
+		size = size + 1;
+	}
+	print["\n", "printed array starting from pos 0", "\n"];
+
+}
+
+main();

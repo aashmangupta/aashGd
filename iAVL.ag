@@ -1,0 +1,336 @@
+function node(var value, var left, var right, var parent, var height, var leftHeight, var rightHeight) {	# node data struct
+	this;
+}
+
+function treeStruct(var root, var size) {						# tress data struct
+	this;
+}
+
+# 9721230 acts as NULL value
+
+var dummyLeft = node(9721230, 0, 0, 0, 0, 0);
+var dummyRight = node(9721230, 0, 0, 0, 0, 0);
+var dummyParent = node(9721230, 0, 0, 0, 0, 0);
+
+var insertNode = node(1, dummyLeft, dummyRight, dummyParent, 1, 0, 0);
+var tree = treeStruct(insertNode, 0);
+var currRoot = tree.root;
+var y = currRoot;
+
+function insertBST() {
+	y = currRoot;
+	ptrToInserted = insertNode;
+	while(currRoot.value ! 9721230) {
+		y = currRoot;
+		if(currRoot.value > insertNode.value) {
+			currRoot = currRoot.left;
+		}
+		else {
+			currRoot = currRoot.right;
+		}
+	}
+	if(tree.size == 0) {
+		tree.root = insertNode;
+		tree.size = 1;
+	}
+	else if(y.value > insertNode.value) {
+		insertNode.parent = y;
+		y.left = insertNode;
+		tree.size = tree.size + 1;
+	}
+	else {
+		insertNode.parent = y;
+		y.right = insertNode;
+		tree.size = tree.size + 1;
+	}
+	currRoot = tree.root;
+}
+
+#DONE WITH BST INSERT
+var loopBreakVar = 0;
+var ptrToInserted = insertNode;
+var leftHt = 0;
+var rightHt = 0;
+var dummyReturn = insertNode;
+var smartReturn = insertNode;
+var returnPar = insertNode;
+var findFavOf = dummyParent;
+
+function findFav() {
+	if(findFavOf.value == 9721230) {
+		dummyReturn = dummyParent;
+	}
+	else {
+		leftHt = findFavOf.leftHeight;
+		rightHt = findFavOf.rightHeight;
+		returnPar = findFavOf;
+		if(leftHt > rightHt) {
+			dummyReturn = returnPar.left;
+		}
+		else if(leftHt < rightHt) {
+			dummyReturn = returnPar.right;
+		}
+		else {
+			dummyReturn = dummyLeft;
+		}
+	}
+}
+
+function sibling() {
+	if(tree.root.left.value == 9721230 & tree.root.right.value == 9721230) {
+		dummyParent;
+	}
+	if((ptrToInserted.parent.left.value ! 9721230) &  ptrToInserted.parent.left.value == ptrToInserted.value) {
+		ptrToInserted.parent.right;
+	}
+	else {
+		ptrToInserted.parent.left;
+	}
+}
+
+var nodeToBeSet = insertNode;
+function setBalance() {
+	if(nodeToBeSet.left.value ! 9721230) {		#set left height
+		nodeToBeSet.leftHeight = nodeToBeSet.left.height;
+	}
+	else {
+		 nodeToBeSet.leftHeight = 0;
+	}
+	if(nodeToBeSet.right.value ! 9721230) {		#set right height
+		nodeToBeSet.rightHeight = nodeToBeSet.right.height;
+	}
+	else {
+		 nodeToBeSet.rightHeight = 0;
+	}
+	if(nodeToBeSet.rightHeight > nodeToBeSet.leftHeight) {		#set height
+		nodeToBeSet.height = nodeToBeSet.rightHeight + 1;
+	}
+	else {
+		nodeToBeSet.height = nodeToBeSet.leftHeight + 1;
+	}
+}
+var xx = insertNode;
+var pp = insertNode;
+var yy = insertNode;
+
+function areLinear() {
+	if(pp.value == 9721230 | xx.value == 9721230 | yy.value == 9721230) {
+		var uop = 0;
+	}
+	else if(pp.left.value == xx.value) {
+		if(xx.left.value == yy.value) {
+			var uop = 1;
+		}
+	}
+	else if(pp.right.value == xx.value) {
+		if(xx.right.value == yy.value) {
+			var uop = 1;
+		}
+	}
+	var uop = 0;
+}
+
+var firstArg = insertNode;
+var secondArg = insertNode;
+var grandParent = insertNode;
+var temp = insertNode;
+function rotate() {
+	grandParent = secondArg.parent;
+	if(firstArg.value == 9721230 | secondArg.value == 9721230) {
+		var uop = 0;
+	}
+	else if(grandParent.value ! 9721230) {
+		if(secondArg.value == grandParent.left.value) {
+			grandParent.left = firstArg;
+			firstArg.parent = grandParent;
+		}
+		else {
+			grandParent.right = firstArg;
+			firstArg.parent = grandParent;
+		}
+	}
+	else {
+		tree.root = firstArg;
+		firstArg.parent = dummyParent;
+	}
+
+	if((secondArg.left.value ! 9721230) & secondArg.left.value == firstArg.value) {
+		temp = firstArg.right;
+		firstArg.right = secondArg;
+		secondArg.parent = firstArg;
+		secondArg.left = temp;
+		if(temp.value ! 9721230) {
+			temp.parent = secondArg;
+		}
+	}
+	else {
+		temp = firstArg.left;
+		firstArg.left = secondArg;
+		secondArg.parent = firstArg;
+		secondArg.right = temp;
+		if(temp.value ! 9721230) {
+			temp.parent = secondArg;
+		}
+	}
+}
+
+var findFavVal = insertNode;
+var sibVal = insertNode;
+var loopBreak2 = 0;
+function insertionFixUp() {
+	loopBreakVar = 0;
+	while(loopBreakVar == 0) {
+		if(tree.root.value ! ptrToInserted.value) {
+			findFavOf = ptrToInserted.parent;
+			findFav();
+			findFavVal = dummyReturn;
+			sibVal = sibling();
+		}
+		if(tree.root.value == ptrToInserted.value) {		# root case
+			loopBreakVar = 1;
+		}
+		
+		else if((findFavVal.value ! 9721230) & (findFavVal.value == sibVal.value)) {		# parent favors sibling	/////////might cause error
+			nodeToBeSet = ptrToInserted.parent;
+			setBalance();
+			loopBreakVar = 1;
+		}
+
+		else if(findFavVal.value == 9721230) {				# no favorites
+			nodeToBeSet = ptrToInserted.parent;
+			setBalance();
+			ptrToInserted = ptrToInserted.parent;
+		}
+		
+		else {										# parent favors insertedNode
+			var parent = ptrToInserted.parent;
+			pp = parent;
+			xx = ptrToInserted;
+			
+			findFavOf = xx;
+			findFav();
+			var favChild = dummyReturn;
+			yy = favChild;
+			if(favChild.value ! 9721230 & areLinear() == 0) {		# child exists and not linear
+				secondArg = ptrToInserted;
+				firstArg = favChild;
+				rotate();
+				firstArg = favChild;
+				secondArg = parent;
+				rotate();
+				nodeToBeSet = ptrToInserted;
+				setBalance();
+				nodeToBeSet = parent;
+				setBalance();
+				nodeToBeSet = favChild;
+				setBalance();
+			}	
+			else {
+				firstArg = ptrToInserted;
+				secondArg = parent;
+				rotate();
+				nodeToBeSet = parent;
+				setBalance();
+				nodeToBeSet = ptrToInserted;
+				setBalance();
+			}
+			loopBreakVar = 1;
+		}
+	
+	}
+}
+
+function insertAVL() {
+	insertBST();
+	insertionFixUp();
+}
+
+var lh = 1;
+var rh = 1;
+var count = 0;
+function display(var root) {
+	if(root.value == 9721230) {
+		var x = root;
+	}
+	else {
+		display(root.left);
+		if(root.value ! tree.root.value) {
+			if(count == 0) {
+				print[root.value];
+			}
+			else {
+				print[" ", root.value];
+			}
+			count = 1;
+			lh = root.leftHeight;
+			rh = root.rightHeight;
+			if(lh > rh) {
+				print["+"];
+			}
+			else if(lh < rh) {
+				print["-"];
+			}
+			print["(", root.parent.value];
+			lh = root.parent.leftHeight;
+			rh = root.parent.rightHeight;
+			if(lh > rh) {
+				print["+"];
+			}
+			else if(lh < rh) {
+				print["-"];
+			}
+			print[")"];
+		}
+		else {
+			if(count == 0) {
+				print["[", root.value];
+			}
+			else {
+				print[" ", "[", root.value];
+			}
+			count = 1;
+			lh = root.leftHeight;
+			rh = root.rightHeight;
+			if(lh > rh) {
+				print["+"];
+			}
+			else if(lh < rh) {
+				print["-"];
+			}
+			print["]"];
+		}
+		display(root.right);
+	}
+}
+
+function main() {
+	if(getArgCount() < 3) {
+		print["ERROR: incorrect number of arguments...", "\n"];
+		exit;
+	}
+	
+	var fileName = getArgAt(2);				# file reading
+	var fp = openFile(fileName);
+
+
+	tree = treeStruct(insertNode, 0);
+
+	var x = readInteger(fp);				
+	while(atFileEnd(fp) ! 1) {				# goes through fiel reading ints
+		if(x == 0) {
+			display(tree.root);
+			print["\n"];
+			count = 0;
+		}
+		else if(x == 1) {
+			x = readInteger(fp);
+			insertNode = node(x, dummyLeft, dummyRight, dummyParent, 1, 0, 0);
+			insertAVL();
+		}
+		x = readInteger(fp);	
+	}
+
+
+}
+
+main();

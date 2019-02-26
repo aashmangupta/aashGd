@@ -1,0 +1,10 @@
+function main() {
+	var x = 5;
+	var y = "hello";
+	
+	if(x < y) {
+		print["somehow this worked"];
+	}
+}
+
+main();

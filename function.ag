@@ -1,0 +1,25 @@
+function f(var x) {
+	lambda(var y) {
+		x + y;
+	};
+}
+
+function pass(var i) {
+	print["Passed function output: ", i * i, "\n"];
+}
+
+function main() {
+	print["Running first class function test from beastie", "\n"];
+	var a = f(3);
+	var b = f(11);
+
+	print[a(5), "\n"];
+	print[b(6), "\n"];
+	print[a(10), "\n"];
+
+	print["Passing function to var x", "\n"];
+	var x = pass;
+	x(3);
+
+}
+main();

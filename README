@@ -1,0 +1,117 @@
+- declare variables using
+	var yourVariableName;
+
+- define functions using
+	function yourFunctionName()
+
+- to break a while loop use
+	iterate;
+
+- single line comments
+	#
+
+- start and to end block comments with
+	$
+
+- print using
+	print["YOUR TEXT"];
+
+- how to use not
+	To compare something do: u ! 0
+	The C equivalent would be u != 0
+
+- command to exit program
+	exit;
+
+- makefile commands
+	make
+	make test1		#recognizer expected output: legal
+	make test2		#recognizer expected output: legal
+	make test3		#recognizer expected output: illegal
+	make test4		#recognizer expected output: ilegal
+	make test5		#recognizer expected output: illegal
+	make run
+
+- ENVIRONMENT
+	newEnvironment(): creates new environment
+	car(): returns left pointer of lexeme
+	cdr(): return right pointer of lexeme
+	setCar(): sets left pointer
+	setCdr(): sets right pointer
+	update(): updates a variable in certain environment
+	lookup(): used to find value of a variable in an environemnt
+	insert(): inserts variable and value into an environment
+	extend(): adds an environment
+	displayCurrEnv(): displays the passed in environment
+	displayAll(): displays all environemnts
+
+- prettyPrint
+	test1 output:
+function emptyFunc() {
+	var x = 5 + 2 ;
+}
+function func(var x ) {
+	x = x + 2 ;
+	x = x / 2 ;
+	function nestedFunc(var x ) {
+	x = x - 2 ;
+	return x ;
+}
+	return nestedFunc(x ) ;
+}
+function twoArgs(var x , var y ) {
+	x = x * y ;
+	return x + y ;
+}
+var a = 2.100000 ;
+var globVar = 9 ;
+var globVar2 ;
+function main() {
+	var a = 2 ;
+	var b = 100 ;
+	if(a < b ){
+	a = a * 2 ;
+}else if(a > 10 ){
+	b = b + 10 ;
+}else {
+	a = 0 ;
+}
+	a = b - a ;
+	if(a == b ){
+	a = a / 2 ;
+}
+	while(a ! 0 ){
+	a = a - 1 ;
+}
+	emptyFunc() ;
+	var returnVal = func(a ) ;
+	globVar2 = twoArgs(1 ,(2 * 9 )) ;
+	return 0 ;
+}
+
+
+	test2 output:
+var globVar = 0 ;
+function main() {
+	print["Aashman" ];
+	globVar = globVar + 100 ;
+	globVar = - 100 ;
+	return 0 ;
+}
+
+	
+	test3 output:
+function hello() {
+	print["Hello" ];
+	function world() {
+	print["World!\n" ];
+}
+}
+function main() {
+	var i = 0 ;
+	if(i == 0 ){
+	print["Hello World!\n" ];
+}
+	hello() ;
+	return 0 ;
+}

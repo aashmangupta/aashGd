@@ -1,0 +1,22 @@
+function main() {
+	var x = 5;
+	var y = 3;
+	
+	print["x: 5, y: 3", "\n"];
+
+	if(x > y) {
+		print["Entered if condition where x > y", "\n"];
+	}
+	else {
+		print["Failed", "\n"];
+	}
+
+	x = 3;
+	print["x: 3, y: 3", "\n"];
+
+	if(x > y) {print["failed", "\n"]; }
+	else if(x == y) { print["Entered else if condition where x == y", "\n"]; }
+	else { print["failed", "\n"]; }
+}
+
+main();

@@ -1,0 +1,29 @@
+function node(var value, var next) {
+	function getV() {
+		value;
+	}
+	function setV(var intVal) {
+		value = intVal;
+	}
+	this;
+
+}
+
+function main() {
+	print["Created Node y with val 6, and NULL next", "\n"];
+	var y = node(6);
+
+	print["Created Node x with val 3, and y next", "\n"];
+	var x = node(3, y);
+
+	print["Updating value of x to 10", "\n"];
+	x.value = 10;
+	print["Updated value of x: ", x.value, "\n"];
+	print["Value of x.next: ", x.next.value, "\n"];
+
+	print["Using function setV() to set value of x", "\n"];
+	x.setV(5);
+	print["Retrieving val of x using getV(): ", x.getV(), "\n"];
+}
+
+main();

@@ -1,0 +1,12 @@
+function main() {
+	print["Running a while loop which increments a var 10 times", "\n"];
+
+	var i = 1;
+
+	while(i ! 11) {
+		print["var: ", i, "\n"];
+		i = i + 1;
+	}
+}
+
+main();

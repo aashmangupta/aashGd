@@ -1,0 +1,8 @@
+function main() {
+	var x = 5;
+	print[x * x *x];
+	int newVal = x;
+	print["New val is: ", newVal, "\n"];
+}
+
+main();

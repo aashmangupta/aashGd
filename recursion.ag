@@ -1,0 +1,26 @@
+var result = 0;		#dummy variable
+
+function main() {
+	print["Running fibbonacci of 9", "\n"];
+	var i = 0;
+
+	while(i < 9) {
+		print[fib(i), " "];
+		i = i + 1;
+	}
+	print["\n"];
+}
+
+function fib(var x) {
+	if(x == 0) {
+		result = 0;
+	}
+	else if(x == 1) {
+		result = 1;
+	}
+	else {
+		result = fib(x - 1) + fib(x - 2);
+	}
+}
+
+main();
